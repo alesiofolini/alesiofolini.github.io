@@ -19,7 +19,9 @@ function readContacts() {
         consoleLog('Found ' + contacts.length + ' contacts.');
         if (contacts.length) {
           consoleLog('First contact: ' + contacts[0].name + ' (' + contacts[0].tel + ')');
-		  window.location.href = 'https://api.whatsapp.com/send?phone=51987654321&text=Hola%20quiero%20mas%20informacion';
+		  var numero = contacts[0].tel
+		  var mensaje = "mensaje de prueba";
+		  window.location.href = 'https://api.whatsapp.com/send?phone='+numero+'&text='+mensaje;
         }
       })
       .catch(function (err) {
