@@ -13,11 +13,13 @@ function readContacts() {
   var api = (navigator.contacts || navigator.mozContacts);
     
   if (api && !!api.select) { // new Chrome API
+	api.getProperties()
     api.select(['name', 'tel'], {multiple: true})
       .then(function (contacts) {
         consoleLog('Found ' + contacts.length + ' contacts.');
         if (contacts.length) {
           consoleLog('First contact: ' + contacts[0].name + ' (' + contacts[0].tel + ')');
+		  window.location.href = 'https://api.whatsapp.com/send?phone=51987654321&text=Hola%20quiero%20mas%20informacion';
         }
       })
       .catch(function (err) {
